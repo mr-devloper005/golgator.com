@@ -8,43 +8,43 @@ import { EditableSiteShell } from '@/editable/shell/EditableSiteShell'
 
 const lanes = [
   { icon: Camera, title: 'Gallery launches', body: 'Share portfolio updates, image collections, and visual campaigns that need a stronger public presentation.' },
-  { icon: Sparkles, title: 'Creator features', body: 'Discuss professional profiles, editorial support, or visual feature placement across the site.' },
+  { icon: Sparkles, title: 'Creator features', body: 'Discuss editorial support, creative showcases, or visual feature placement across the site.' },
   { icon: Mail, title: 'Partnership support', body: 'Reach out about usage rights, commercial requests, and collaboration opportunities.' },
 ]
 
 export default function ContactPage() {
   return (
     <EditableSiteShell>
-      <main className="bg-white text-[var(--slot4-page-text)]">
-        <section className="mx-auto max-w-[1388px] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <main className="bg-[#f5f0eb] text-[#111]">
+        <section className="mx-auto max-w-[1320px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div className="editable-reveal">
-              <p className="text-sm font-black uppercase italic text-[var(--slot4-accent)]">{pagesContent.contact.eyebrow}</p>
-              <h1 className="mt-5 max-w-3xl text-6xl font-black leading-[1.16] text-[#03050c] sm:text-7xl">{pagesContent.contact.title}</h1>
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-[#515963]">{pagesContent.contact.description}</p>
-              <div className="mt-10 grid gap-5">
+              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#FF6B00]">{pagesContent.contact.eyebrow}</p>
+              <h1 className="mt-4 max-w-2xl text-4xl font-black uppercase italic leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl">{pagesContent.contact.title}</h1>
+              <p className="mt-5 max-w-lg text-base leading-7 text-black/55">{pagesContent.contact.description}</p>
+              <div className="mt-10 grid gap-4">
                 {lanes.map((lane) => (
-                  <div key={lane.title} className="rounded-[18px] border border-black/10 bg-[#f7fafb] p-7 shadow-[0_18px_55px_rgba(14,32,42,0.05)]">
-                    <lane.icon className="h-7 w-7 text-[var(--slot4-accent)]" />
-                    <h2 className="mt-4 text-2xl font-black">{lane.title}</h2>
-                    <p className="mt-3 text-base leading-8 text-[#606873]">{lane.body}</p>
+                  <div key={lane.title} className="editable-card-hover bg-white p-6">
+                    <lane.icon className="h-6 w-6 text-[#FF6B00]" />
+                    <h2 className="mt-3 text-lg font-black uppercase italic tracking-tight">{lane.title}</h2>
+                    <p className="mt-2 text-sm leading-7 text-black/50">{lane.body}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[18px] border border-black/10 bg-[#eef4f5] p-5 shadow-[0_26px_85px_rgba(14,32,42,0.08)] sm:p-8">
+            <div className="bg-white p-6 sm:p-8">
               <div className="mb-6 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-black uppercase italic text-[var(--slot4-accent)]">Message</p>
-                  <h2 className="mt-2 text-3xl font-black">{pagesContent.contact.formTitle}</h2>
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#FF6B00]">Message</p>
+                  <h2 className="mt-1 text-2xl font-black uppercase italic tracking-tight">{pagesContent.contact.formTitle}</h2>
                 </div>
-                <Link href="/search" className="hidden items-center gap-2 rounded-full bg-[var(--slot4-gold)] px-6 py-3 text-sm font-black text-[#111521] sm:inline-flex">Browse <ArrowUpRight className="h-4 w-4" /></Link>
+                <Link href="/search" className="hidden items-center gap-2 bg-[#FF6B00] px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.1em] text-white sm:inline-flex">Browse <ArrowUpRight className="h-3.5 w-3.5" /></Link>
               </div>
               <EditableContactLeadForm />
-              <div className="mt-6 flex items-center gap-3 rounded-[18px] bg-white p-5 text-[#515963]">
-                <MessageCircle className="h-6 w-6 text-[var(--slot4-accent)]" />
-                <p className="text-sm font-bold leading-6">Your message uses the existing contact workflow and keeps backend behavior unchanged.</p>
+              <div className="mt-6 flex items-center gap-3 border border-black/8 bg-[#f5f0eb] p-4 text-black/50">
+                <MessageCircle className="h-5 w-5 text-[#FF6B00]" />
+                <p className="text-xs font-bold leading-5">Your message uses the existing contact workflow and keeps backend behavior unchanged.</p>
               </div>
             </div>
           </div>

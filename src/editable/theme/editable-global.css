@@ -1,12 +1,13 @@
 body {
   background-color: var(--slot4-page-bg) !important;
   color: var(--slot4-page-text) !important;
-  background-image: var(--slot4-body-gradient) !important;
+  background-image: none !important;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--slot4-gold) 55%, transparent);
-  color: var(--slot4-page-text);
+  background: color-mix(in oklab, var(--slot4-accent) 40%, transparent);
+  color: #111;
 }
 
 html {
@@ -14,54 +15,100 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #eef4f5;
+  background: #111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in oklab, var(--slot4-accent) 70%, white);
-  border: 2px solid #eef4f5;
+  background: var(--slot4-accent);
+  border: 2px solid #111;
   border-radius: 999px;
 }
 
 .article-content h2,
 .article-content h3 {
   color: var(--slot4-page-text);
-  letter-spacing: 0;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
 }
 
 .article-content a {
-  color: var(--slot4-accent-fill);
+  color: var(--slot4-accent);
   font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .editable-reveal {
-  animation: editableRise 0.72s ease both;
+  animation: editableRise 0.6s ease both;
 }
 
 .editable-float {
-  animation: editableFloat 5.8s ease-in-out infinite;
+  animation: editableFloat 5s ease-in-out infinite;
 }
 
 .editable-spin-slow {
-  animation: editableSpin 18s linear infinite;
+  animation: editableSpin 20s linear infinite;
 }
 
 .editable-image-zoom img {
-  transition: transform 0.7s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .editable-image-zoom:hover img {
-  transform: scale(1.055);
+  transform: scale(1.06);
+}
+
+.editable-stripe {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--slot4-accent);
+  transform: skewX(-6deg) translateX(80px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.editable-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editable-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.editable-border-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.editable-border-slide::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--slot4-accent);
+  transition: width 0.4s ease;
+}
+
+.editable-border-slide:hover::after {
+  width: 100%;
 }
 
 @keyframes editableRise {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -72,16 +119,27 @@ html {
 @keyframes editableFloat {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(-3deg);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-10px) rotate(3deg);
   }
 }
 
 @keyframes editableSpin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes editableSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -94,5 +152,13 @@ html {
   .editable-float,
   .editable-spin-slow {
     animation: none !important;
+  }
+
+  .editable-image-zoom img {
+    transition: none !important;
+  }
+
+  .editable-card-hover {
+    transition: none !important;
   }
 }
