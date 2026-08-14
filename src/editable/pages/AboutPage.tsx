@@ -1,41 +1,46 @@
-import { ArrowUpRight, Camera, CheckCircle2, Sparkles, UserRound } from 'lucide-react'
+import { ArrowUpRight, Camera, CheckCircle2, UserRound } from 'lucide-react'
 import Link from 'next/link'
 import { pagesContent } from '@/editable/content/pages.content'
 import { EditableSiteShell } from '@/editable/shell/EditableSiteShell'
 
-const displayName = 'golgator'
+const displayName = 'GOLGATOR'
 
 export default function AboutPage() {
   return (
     <EditableSiteShell>
-      <main className="bg-white text-[var(--slot4-page-text)]">
-        <section className="mx-auto max-w-[1388px] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <article className="editable-reveal">
-              <p className="text-sm font-black uppercase italic text-[var(--slot4-accent)]">{pagesContent.about.badge}</p>
-              <h1 className="mt-5 max-w-4xl text-6xl font-black leading-[1.16] text-[#03050c] sm:text-7xl">About {displayName}</h1>
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-[#515963]">{pagesContent.about.description}</p>
-              <div className="mt-10 grid gap-5 text-base leading-8 text-[#606873]">
+      <main className="bg-[#f5f0eb] text-[#111]">
+        <section className="bg-[#FF6B00] py-16 lg:py-24">
+          <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
+            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-black/50">{pagesContent.about.badge}</p>
+            <h1 className="mt-4 max-w-3xl text-5xl font-black uppercase italic leading-[0.92] tracking-tight text-black sm:text-6xl lg:text-7xl">About {displayName}</h1>
+            <p className="mt-6 max-w-xl text-base leading-7 text-black/65">{pagesContent.about.description}</p>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-[1320px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="editable-reveal">
+              <div className="grid gap-5 text-base leading-7 text-black/60">
                 {pagesContent.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/image" className="inline-flex items-center gap-2 rounded-full bg-[var(--slot4-gold)] px-8 py-4 text-sm font-black text-[#111521] transition hover:-translate-y-0.5">Explore images <ArrowUpRight className="h-4 w-4" /></Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-8 py-4 text-sm font-black transition hover:border-[var(--slot4-accent)] hover:text-[var(--slot4-accent)]">Contact <ArrowUpRight className="h-4 w-4" /></Link>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/image" className="inline-flex items-center gap-2 bg-[#FF6B00] px-6 py-3.5 text-xs font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#e55f00]">Explore images <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 border-2 border-black px-6 py-3.5 text-xs font-black uppercase tracking-[0.1em] transition hover:bg-black hover:text-white">Contact <ArrowUpRight className="h-3.5 w-3.5" /></Link>
               </div>
-            </article>
+            </div>
 
-            <aside className="grid gap-5">
+            <div className="grid gap-4">
               {pagesContent.about.values.map((value, index) => {
-                const Icon = [Camera, UserRound, CheckCircle2][index] || Sparkles
+                const Icon = [Camera, UserRound, CheckCircle2][index] || Camera
                 return (
-                  <div key={value.title} className="rounded-[18px] border border-black/10 bg-[#f7fafb] p-8 shadow-[0_18px_55px_rgba(14,32,42,0.06)]">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[var(--slot4-accent)] shadow-sm"><Icon className="h-7 w-7" /></span>
-                    <h2 className="mt-6 text-3xl font-black leading-tight">{value.title}</h2>
-                    <p className="mt-4 text-base leading-8 text-[#606873]">{value.description}</p>
+                  <div key={value.title} className="editable-card-hover bg-white p-7">
+                    <span className="flex h-12 w-12 items-center justify-center bg-[#111] text-white"><Icon className="h-6 w-6" /></span>
+                    <h2 className="mt-5 text-xl font-black uppercase italic tracking-tight">{value.title}</h2>
+                    <p className="mt-3 text-sm leading-7 text-black/50">{value.description}</p>
                   </div>
                 )
               })}
-            </aside>
+            </div>
           </div>
         </section>
       </main>

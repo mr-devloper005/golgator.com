@@ -18,15 +18,15 @@ export function EmptyState({
   className,
 }: EmptyStateProps) {
   return (
-    <section className={cn('rounded-[18px] border border-dashed border-black/15 bg-[#eef4f5] p-10 text-center', className)}>
-      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-[var(--slot4-accent)] shadow-sm">
-        <SearchX className="h-7 w-7" />
+    <section className={cn('border-2 border-dashed border-black/10 bg-white p-12 text-center', className)}>
+      <div className="mx-auto flex h-14 w-14 items-center justify-center bg-[#111] text-white">
+        <SearchX className="h-6 w-6" />
       </div>
-      <h2 className="mt-6 text-3xl font-black leading-tight">{title}</h2>
-      <p className="mx-auto mt-3 max-w-xl text-base leading-8 text-[#666d75]">{description}</p>
-      <Link href={actionHref} className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--slot4-gold)] px-7 py-4 text-sm font-black text-[#172033] transition hover:-translate-y-0.5">
+      <h2 className="mt-6 text-2xl font-black uppercase italic tracking-tight">{title}</h2>
+      <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-black/50">{description}</p>
+      <Link href={actionHref} className="mt-6 inline-flex items-center gap-2 bg-[#FF6B00] px-6 py-3 text-xs font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#e55f00]">
         {actionLabel}
-        <ArrowUpRight className="h-4 w-4" />
+        <ArrowUpRight className="h-3.5 w-3.5" />
       </Link>
     </section>
   )
@@ -37,7 +37,7 @@ export function TaskEmptyState({ taskLabel = 'posts', className }: { taskLabel?:
     <EmptyState
       className={className}
       title={`No ${taskLabel} available yet`}
-      description={`Published ${taskLabel} will appear here automatically. The layout stays ready with a polished empty state while the feed is quiet.`}
+      description={`Published ${taskLabel} will appear here automatically. The layout stays ready while the feed is quiet.`}
       actionLabel="Explore the site"
       actionHref="/"
     />
